@@ -1,6 +1,6 @@
 # Sidekick
 
-AI debugging toolkit for the cashflow-optimizer team. Provides Coralogix log investigation, CI failure analysis, production debugging, and repeatable Braintrust eval workflows through Codex and Claude-compatible skills.
+AI debugging toolkit for the cashflow-optimizer team. Provides Coralogix log investigation, CI failure analysis, production debugging, and repeatable Braintrust eval workflows through Claude Code skills and commands.
 
 ## Prerequisites
 
@@ -22,7 +22,7 @@ export CLAUDE_CODE_ADDITIONAL_DIRECTORIES_CLAUDE_MD=1
 
 Reload: `source ~/.zshrc`
 
-### 2. Launch an agent with sidekick
+### 2. Launch Claude Code with sidekick
 
 From any cashflow-optimizer worktree:
 
@@ -30,13 +30,7 @@ From any cashflow-optimizer worktree:
 claude --add-dir ~/code/sidekick
 ```
 
-For Codex:
-
-```bash
-Codex --add-dir ~/code/sidekick
-```
-
-This loads sidekick guidance and skills while keeping your target repo as the working directory, so code search and edits still happen in the repo you opened.
+This loads sidekick's `CLAUDE.md`, skills, and commands while keeping your worktree as the working directory, so code search works.
 
 ### 3. Verify
 
@@ -202,4 +196,4 @@ Each batch writes:
 | `events/` | Braintrust event payloads per run |
 | `baselines/` | Normalized baseline JSON per run |
 
-The skill docs under `.agents/skills/eval-braintrust/SKILL.md` contain the full operating procedure and edge-case handling.
+The skill docs under `.claude/skills/eval-braintrust/SKILL.md` contain the full operating procedure and edge-case handling. The `.agents/skills/eval-braintrust/` copy mirrors the same implementation for Codex-style skill loading.
